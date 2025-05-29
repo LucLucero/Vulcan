@@ -20,9 +20,8 @@ async function sendMessage() {
 
       var headers = new Headers();
       headers.append("Content-Type", "application/json");
-      headers.append("Origin", "http://localhost:8080");
+      headers.append("Origin", "http://127.0.0.1:5500");
       
-     
       var requestOptions = {
 
         method: 'POST',
@@ -31,7 +30,7 @@ async function sendMessage() {
 
       }
 
-      var botRes = await fetch("http://localhost:8080/chat?message="+userMessage, requestOptions)            
+      var botRes = await fetch("http://127.0.0.1:8080/chat?message="+userMessage, requestOptions)            
         .catch(error => console.log('error', error)); 
       
       var response = await botRes.text();
