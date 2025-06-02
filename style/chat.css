@@ -41,7 +41,7 @@ body {
       /* width: 80vw; */
     }
 
-    .message {
+    .message, .message1 {
       max-width: 80%;
       padding: 10px 15px;
       border-radius: 10px;

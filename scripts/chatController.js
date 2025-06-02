@@ -11,12 +11,19 @@ async function sendMessage() {
 
       input.value = '';
       input.focus();
-      
       await botResponse(message);
       
     }
 
     async function botResponse(userMessage) {
+
+
+      
+        const tempRes = document.createElement('div');
+        tempRes.className = 'bot-message message';   
+        tempRes.innerText = 'Pensando...';
+        document.getElementById('chat').appendChild(tempRes);
+
 
       var headers = new Headers();
       headers.append("Content-Type", "application/json");
@@ -36,11 +43,11 @@ async function sendMessage() {
       var response = await botRes.text();
       console.log(response);
       var responseFormatted = marked.parse(response);
-      const botDiv = document.createElement('div');
-        botDiv.className = 'bot-message message';        
-        botDiv.innerHTML = responseFormatted;
-        MathJax.typesetPromise();  
-        document.getElementById('chat').appendChild(botDiv);
+      // const botDiv = document.createElement('div');
+        // botDiv.className = 'bot-message message';        
+        tempRes.innerHTML = responseFormatted;
+        MathJax.typesetPromise();         
+        // document.getElementById('chat').appendChild(tempRes);
         document.getElementById('chat').scrollTop = document.getElementById('chat').scrollHeight; 
            
 
